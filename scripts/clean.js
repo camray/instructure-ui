@@ -52,7 +52,9 @@ const DIRS_TO_DELETE = [
   'tokens',
   '.babel-cache',
   '.cache',
-  'es'
+  'es',
+  'swc-es',
+  'swc-node'
 ]
 function deleteDirs(dirs = []) {
   return dirs.map((dir) => {
