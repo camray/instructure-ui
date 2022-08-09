@@ -54,7 +54,8 @@ const DIRS_TO_DELETE = [
   '.cache',
   'es',
   'swc-es',
-  'swc-node'
+  'swc-node',
+    '.swcrc'
 ]
 function deleteDirs(dirs = []) {
   return dirs.map((dir) => {
