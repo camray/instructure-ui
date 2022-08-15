@@ -155,7 +155,9 @@ class ReactComponentWrapper {
           let err: unknown
           try {
             this._root = res!.createRoot(this._mountNode!)
-            this._root.render(WrappedElement)
+            this._root.render(
+              <React.StrictMode>{WrappedElement}</React.StrictMode>
+            )
           } catch (error) {
             err = error
           }
@@ -174,7 +176,10 @@ class ReactComponentWrapper {
           let error: unknown
           setTimeout(() => {
             try {
-              ReactDOM.render(WrappedElement, this._mountNode)
+              ReactDOM.render(
+                <React.StrictMode>{WrappedElement}</React.StrictMode>,
+                this._mountNode
+              )
             } catch (e) {
               // catch unhandled errors
               error = e
