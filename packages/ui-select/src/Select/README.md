@@ -900,9 +900,13 @@ class GroupSelectAutocompleteExample extends React.Component {
   handleHighlightOption = (event, { id }) => {
     event.persist()
     const option = this.getOptionById(id)
+    setTimeout(() => {
+      this.setState((state) => ({
+        announcement: option.label
+      }))
+    }, 0)
     this.setState((state) => ({
       highlightedOptionId: id,
-      announcement: option.label
     }))
   }
 
@@ -956,7 +960,7 @@ class GroupSelectAutocompleteExample extends React.Component {
     const announcement = this.state.announcement
     return window.safari && (
       <ScreenReaderContent>
-        <span role="region" aria-live="assertive" aria-atomic={true}>{announcement}</span>
+        <span role="alert" aria-live="assertive">{announcement}</span>
       </ScreenReaderContent>
     )
   }
